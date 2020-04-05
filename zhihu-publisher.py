@@ -47,7 +47,8 @@ def formula_ops(_lines):
 # The support function for image_ops. It will take in a matched object and make sure they are competible
 def rename_image_ref(m, original=True):
     global image_folder_path
-    if not Path(m.group(1)).is_file():
+    #if not Path(m.group(1)).is_file():
+    if "https://www.zhihu.com" in m.group(1):
         return m.group(0)
     if os.path.getsize(image_folder_path.parent/m.group(1+int(original)))>COMPRESS_THRESHOLD:
         if original:
