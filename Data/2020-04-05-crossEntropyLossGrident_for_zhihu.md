@@ -118,37 +118,29 @@ P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
 由此，得到
 
 
-<img src="https://www.zhihu.com/equation?tex=\begin{align}
-J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
+<img src="https://www.zhihu.com/equation?tex=\begin{align} J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\theta^T x^{(i)}-\log(1+e^{-\theta^T x^{(i)}})\right]\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log e^{\theta^T x^{(i)}}-\log(1+e^{-\theta^T x^{(i)}})\right]_{③}\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\left(\log e^{\theta^T x^{(i)}}+\log(1+e^{-\theta^T x^{(i)}})\right)\right] _②\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]
-\end{align}
-" alt="\begin{align}
-J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
+&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]\end{align}\\
+" alt="\begin{align} J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\theta^T x^{(i)}-\log(1+e^{-\theta^T x^{(i)}})\right]\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log e^{\theta^T x^{(i)}}-\log(1+e^{-\theta^T x^{(i)}})\right]_{③}\\
 &=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\left(\log e^{\theta^T x^{(i)}}+\log(1+e^{-\theta^T x^{(i)}})\right)\right] _②\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]
-\end{align}
+&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]\end{align}\\
 " class="ee_img tr_noresize" eeimg="1">
 
 这次再计算 <img src="https://www.zhihu.com/equation?tex=J(\theta)" alt="J(\theta)" class="ee_img tr_noresize" eeimg="1"> 对第 <img src="https://www.zhihu.com/equation?tex=j" alt="j" class="ee_img tr_noresize" eeimg="1"> 个参数分量 <img src="https://www.zhihu.com/equation?tex=\theta_j" alt="\theta_j" class="ee_img tr_noresize" eeimg="1"> 求偏导:
 
 
-<img src="https://www.zhihu.com/equation?tex=\begin{align}
-\frac{\partial}{\partial\theta_{j}}J(\theta) &=\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
+<img src="https://www.zhihu.com/equation?tex=\begin{align}\frac{\partial}{\partial\theta_{j}}J(\theta) &=\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
 &=\frac{1}{m}\sum_{i=1}^m \left[\frac{\partial}{\partial\theta_{j}}\log(1+e^{\theta^T x^{(i)}})-\frac{\partial}{\partial\theta_{j}}\left(y^{(i)}\theta^T x^{(i)}\right)\right]\\
 &=\frac{1}{m}\sum_{i=1}^m \left(\frac{x^{(i)}_je^{\theta^T x^{(i)}}}{1+e^{\theta^T x^{(i)}}}-y^{(i)}x^{(i)}_j\right)\\
-&=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
-\end{align}
-" alt="\begin{align}
-\frac{\partial}{\partial\theta_{j}}J(\theta) &=\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
+&=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\end{align}\\
+" alt="\begin{align}\frac{\partial}{\partial\theta_{j}}J(\theta) &=\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
 &=\frac{1}{m}\sum_{i=1}^m \left[\frac{\partial}{\partial\theta_{j}}\log(1+e^{\theta^T x^{(i)}})-\frac{\partial}{\partial\theta_{j}}\left(y^{(i)}\theta^T x^{(i)}\right)\right]\\
 &=\frac{1}{m}\sum_{i=1}^m \left(\frac{x^{(i)}_je^{\theta^T x^{(i)}}}{1+e^{\theta^T x^{(i)}}}-y^{(i)}x^{(i)}_j\right)\\
-&=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
-\end{align}
+&=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\end{align}\\
 " class="ee_img tr_noresize" eeimg="1">
 
 这就是交叉熵对参数的导数：
@@ -167,33 +159,25 @@ J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)
 " class="ee_img tr_noresize" eeimg="1">
 将 <img src="https://www.zhihu.com/equation?tex=h_\theta(x)=\frac{1}{1+e^{-\theta^T x} }" alt="h_\theta(x)=\frac{1}{1+e^{-\theta^T x} }" class="ee_img tr_noresize" eeimg="1"> 带入，得到：
 
-<img src="https://www.zhihu.com/equation?tex=\begin{align}
-J(\theta) &= -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
+<img src="https://www.zhihu.com/equation?tex=\begin{align} J(\theta) &= -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
 &= -\left[ -y^T \log (1+e^{-\theta^T x}) + (1-y^T) \log e^{-\theta^T x} - (1-y^T)\log (1+e^{-\theta^T x})\right] \\
 &= -\left[(1-y^T) \log e^{-\theta^T x} - \log (1+e^{-\theta^T x}) \right]\\
-&= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right]
-\end{align}
-" alt="\begin{align}
-J(\theta) &= -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
+&= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \end{align} \\
+" alt="\begin{align} J(\theta) &= -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
 &= -\left[ -y^T \log (1+e^{-\theta^T x}) + (1-y^T) \log e^{-\theta^T x} - (1-y^T)\log (1+e^{-\theta^T x})\right] \\
 &= -\left[(1-y^T) \log e^{-\theta^T x} - \log (1+e^{-\theta^T x}) \right]\\
-&= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right]
-\end{align}
+&= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \end{align} \\
 " class="ee_img tr_noresize" eeimg="1">
 再对 <img src="https://www.zhihu.com/equation?tex=\theta" alt="\theta" class="ee_img tr_noresize" eeimg="1"> 求导，前面的负号直接削掉了，
 
-<img src="https://www.zhihu.com/equation?tex=\begin{align}
-\frac{\partial}{\partial\theta_{j}}J(\theta) &= -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
+<img src="https://www.zhihu.com/equation?tex=\begin{align} \frac{\partial}{\partial\theta_{j}}J(\theta) &= -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
 &= (1-y^T)x- \frac{e^{-\theta^T }}{1+e^{-\theta^T x} }x \\
 &= (\frac{1}{1+e^{-\theta^T x} } - y^T)x \\
-&= \left(h_\theta(x)-y^T \right)x
-\end{align}
-" alt="\begin{align}
-\frac{\partial}{\partial\theta_{j}}J(\theta) &= -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
+&= \left(h_\theta(x)-y^T \right)x \end{align} \\
+" alt="\begin{align} \frac{\partial}{\partial\theta_{j}}J(\theta) &= -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
 &= (1-y^T)x- \frac{e^{-\theta^T }}{1+e^{-\theta^T x} }x \\
 &= (\frac{1}{1+e^{-\theta^T x} } - y^T)x \\
-&= \left(h_\theta(x)-y^T \right)x
-\end{align}
+&= \left(h_\theta(x)-y^T \right)x \end{align} \\
 " class="ee_img tr_noresize" eeimg="1">
 
 
