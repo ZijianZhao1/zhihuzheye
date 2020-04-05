@@ -43,7 +43,6 @@ $$
 
 $$
 P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}) \\
-
 P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
 $$
 
@@ -51,7 +50,6 @@ $$
 
 $$
 \log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
-
 \log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
 $$
 
