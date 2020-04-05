@@ -47,23 +47,22 @@
 
 
 <img src="https://www.zhihu.com/equation?tex=P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}) \\
+
+P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
 " alt="P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}) \\
-" class="ee_img tr_noresize" eeimg="1">
 
-
-<img src="https://www.zhihu.com/equation?tex=P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
-" alt="P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
+P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
 " class="ee_img tr_noresize" eeimg="1">
 
 现在，我们不考虑“熵”的概念，根据下面的说明，从简单直观角度理解，就可以得到我们想要的损失函数：我们将概率取对数，其单调性不变，有
 
 
 <img src="https://www.zhihu.com/equation?tex=\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
-" alt="\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
-" class="ee_img tr_noresize" eeimg="1">
 
-<img src="https://www.zhihu.com/equation?tex=\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
-" alt="\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
+\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
+" alt="\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
+
+\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
 " class="ee_img tr_noresize" eeimg="1">
 
 那么对于第 <img src="https://www.zhihu.com/equation?tex=i" alt="i" class="ee_img tr_noresize" eeimg="1"> 组样本，假设函数表征正确的组合对数概率为：
