@@ -1,21 +1,15 @@
----
-layout: post
-title: 交叉熵损失函数的求导
-date: 2020-04-05
-tags: 机器学习  
----
+## 目录
 
 
- 1. 前言
- 2. 交叉熵损失函数
- 3. 交叉熵损失函数的求导
+  1. 前言
+  2. 交叉熵损失函数
+  3. 交叉熵损失函数的求导
 
 
 
 ## 前言
 说明：本文只讨论Logistic回归的交叉熵，对Softmax回归的交叉熵类似。
 首先，我们二话不说，先放出交叉熵的公式：
-
 
 <img src="https://www.zhihu.com/equation?tex=J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}y^{(i)}\log(h_\theta(x^{(i)}))+(1-y^{(i)})\log(1-h_\theta(x^{(i)})),
 " alt="J(\theta)=-\frac{1}{m}\sum_{i=1}^{m}y^{(i)}\log(h_\theta(x^{(i)}))+(1-y^{(i)})\log(1-h_\theta(x^{(i)})),
@@ -52,26 +46,24 @@ tags: 机器学习
 因为Logistic回归问题就是0/1的二分类问题，可以有
 
 
-<img src="https://www.zhihu.com/equation?tex=P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}),
- $$ 
-
- " alt="P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}),
- $$ 
-
- " class="ee_img tr_noresize" eeimg="1">
- P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)}).
-
-<img src="https://www.zhihu.com/equation?tex=现在，我们不考虑“熵”的概念，根据下面的说明，从简单直观角度理解，就可以得到我们想要的损失函数：我们将概率取对数，其单调性不变，有
-
-" alt="现在，我们不考虑“熵”的概念，根据下面的说明，从简单直观角度理解，就可以得到我们想要的损失函数：我们将概率取对数，其单调性不变，有
-
+<img src="https://www.zhihu.com/equation?tex=P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}) \\
+" alt="P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=h_\theta(x^{(i)}) \\
 " class="ee_img tr_noresize" eeimg="1">
-\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} },
 
-<img src="https://www.zhihu.com/equation?tex=$$ 
-\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }.
-" alt="$$ 
-\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }.
+
+<img src="https://www.zhihu.com/equation?tex=P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
+" alt="P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=1-h_\theta(x^{(i)})
+" class="ee_img tr_noresize" eeimg="1">
+
+现在，我们不考虑“熵”的概念，根据下面的说明，从简单直观角度理解，就可以得到我们想要的损失函数：我们将概率取对数，其单调性不变，有
+
+
+<img src="https://www.zhihu.com/equation?tex=\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
+" alt="\log P({\hat{y}}^{(i)}=1|x^{(i)};\theta)=\log h_\theta(x^{(i)})=\log\frac{1}{1+e^{-\theta^T x^{(i)}} } \\
+" class="ee_img tr_noresize" eeimg="1">
+
+<img src="https://www.zhihu.com/equation?tex=\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
+" alt="\log P({\hat{y}}^{(i)}=0|x^{(i)};\theta)=\log (1-h_\theta(x^{(i)}))=\log\frac{e^{-\theta^T x^{(i)}}}{1+e^{-\theta^T x^{(i)}} }
 " class="ee_img tr_noresize" eeimg="1">
 
 那么对于第 <img src="https://www.zhihu.com/equation?tex=i" alt="i" class="ee_img tr_noresize" eeimg="1"> 组样本，假设函数表征正确的组合对数概率为：
