@@ -103,20 +103,20 @@ $$
 由此，得到
 
 $$
-\begin{align} J(\theta) &=-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\theta^T x^{(i)}-\log(1+e^{-\theta^T x^{(i)}})\right]\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log e^{\theta^T x^{(i)}}-\log(1+e^{-\theta^T x^{(i)}})\right]_{③}\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\left(\log e^{\theta^T x^{(i)}}+\log(1+e^{-\theta^T x^{(i)}})\right)\right] _②\\
-&=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]\end{align}\\
+ J(\theta) =-\frac{1}{m}\sum_{i=1}^m \left[-y^{(i)}(\log ( 1+e^{-\theta^T x^{(i)}})) + (1-y^{(i)})(-\theta^T x^{(i)}-\log ( 1+e^{-\theta^T x^{(i)}} ))\right]\\
+=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\theta^T x^{(i)}-\log(1+e^{-\theta^T x^{(i)}})\right]\\
+=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log e^{\theta^T x^{(i)}}-\log(1+e^{-\theta^T x^{(i)}})\right]_{③}\\
+=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\left(\log e^{\theta^T x^{(i)}}+\log(1+e^{-\theta^T x^{(i)}})\right)\right] _②\\
+=-\frac{1}{m}\sum_{i=1}^m \left[y^{(i)}\theta^T x^{(i)}-\log(1+e^{\theta^T x^{(i)}})\right]
 $$
 
 这次再计算$J(\theta)$对第$j$个参数分量$\theta_j$求偏导:
 
 $$
-\begin{align}\frac{\partial}{\partial\theta_{j}}J(\theta) &=\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
-&=\frac{1}{m}\sum_{i=1}^m \left[\frac{\partial}{\partial\theta_{j}}\log(1+e^{\theta^T x^{(i)}})-\frac{\partial}{\partial\theta_{j}}\left(y^{(i)}\theta^T x^{(i)}\right)\right]\\
-&=\frac{1}{m}\sum_{i=1}^m \left(\frac{x^{(i)}_je^{\theta^T x^{(i)}}}{1+e^{\theta^T x^{(i)}}}-y^{(i)}x^{(i)}_j\right)\\
-&=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}\end{align}\\
+\frac{\partial}{\partial\theta_{j}}J(\theta) =\frac{\partial}{\partial\theta_{j}}\left(\frac{1}{m}\sum_{i=1}^m \left[\log(1+e^{\theta^T x^{(i)}})-y^{(i)}\theta^T x^{(i)}\right]\right)\\
+=\frac{1}{m}\sum_{i=1}^m \left[\frac{\partial}{\partial\theta_{j}}\log(1+e^{\theta^T x^{(i)}})-\frac{\partial}{\partial\theta_{j}}\left(y^{(i)}\theta^T x^{(i)}\right)\right]\\
+=\frac{1}{m}\sum_{i=1}^m \left(\frac{x^{(i)}_je^{\theta^T x^{(i)}}}{1+e^{\theta^T x^{(i)}}}-y^{(i)}x^{(i)}_j\right)\\
+=\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}
 $$
 
 这就是交叉熵对参数的导数：
@@ -133,17 +133,17 @@ J(\theta) = -\left[ y^T \log h_\theta(x)+(1-y^T)\log(1-h_\theta(x))\right]\tag{2
 $$
 将$h_\theta(x)=\frac{1}{1+e^{-\theta^T x} }$带入，得到：
 $$
-\begin{align} J(\theta) &= -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
-&= -\left[ -y^T \log (1+e^{-\theta^T x}) + (1-y^T) \log e^{-\theta^T x} - (1-y^T)\log (1+e^{-\theta^T x})\right] \\
-&= -\left[(1-y^T) \log e^{-\theta^T x} - \log (1+e^{-\theta^T x}) \right]\\
-&= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \end{align} \\
+J(\theta) = -\left[ y^T \log \frac{1}{1+e^{-\theta^T x} }+(1-y^T)\log\frac{e^{-\theta^T x}}{1+e^{-\theta^T x} }\right] \\
+= -\left[ -y^T \log (1+e^{-\theta^T x}) + (1-y^T) \log e^{-\theta^T x} - (1-y^T)\log (1+e^{-\theta^T x})\right] \\
+= -\left[(1-y^T) \log e^{-\theta^T x} - \log (1+e^{-\theta^T x}) \right]\\
+= -\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right]
 $$
 再对$\theta$求导，前面的负号直接削掉了，
 $$
-\begin{align} \frac{\partial}{\partial\theta_{j}}J(\theta) &= -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
-&= (1-y^T)x- \frac{e^{-\theta^T }}{1+e^{-\theta^T x} }x \\
-&= (\frac{1}{1+e^{-\theta^T x} } - y^T)x \\
-&= \left(h_\theta(x)-y^T \right)x \end{align} \\
+\frac{\partial}{\partial\theta_{j}}J(\theta) = -\frac{\partial}{\partial\theta_{j}}\left[(1-y^T ) (-\theta^Tx) - \log (1+e^{-\theta^T x}) \right] \\
+= (1-y^T)x- \frac{e^{-\theta^T }}{1+e^{-\theta^T x} }x \\
+= (\frac{1}{1+e^{-\theta^T x} } - y^T)x \\
+= \left(h_\theta(x)-y^T \right)x
 $$
 
 
